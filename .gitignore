@@ -1,0 +1,28 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio / IDE
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userprefs
+*.DotSettings.user
+
+# Release binaries (attach these to a GitHub Release instead)
+*.apk
+*.exe
+*.dll
+*.pdb
+
+# Uncompiled Microsoft .NET Reference Source copies (MS-RSL, (c) Microsoft)
+# Kept locally for reading only - never part of the build.
+datetime.cs
+datetimeformat.cs
+gregoariancalendar.cs
+
+# OS junk
+Thumbs.db
+.DS_Store
