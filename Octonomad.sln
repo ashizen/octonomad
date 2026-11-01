@@ -1,0 +1,27 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Octonomad.Core", "Octonomad.Core\Octonomad.Core.csproj", "{6655A7A6-30EF-4222-8D91-4F9E99372E8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Octonomad.Cli", "Octonomad.Cli\Octonomad.Cli.csproj", "{7ED86FE3-F8CD-43EB-9807-E966CD22B067}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6655A7A6-30EF-4222-8D91-4F9E99372E8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6655A7A6-30EF-4222-8D91-4F9E99372E8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6655A7A6-30EF-4222-8D91-4F9E99372E8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6655A7A6-30EF-4222-8D91-4F9E99372E8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ED86FE3-F8CD-43EB-9807-E966CD22B067}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ED86FE3-F8CD-43EB-9807-E966CD22B067}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ED86FE3-F8CD-43EB-9807-E966CD22B067}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ED86FE3-F8CD-43EB-9807-E966CD22B067}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

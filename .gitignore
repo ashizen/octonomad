@@ -70,12 +70,3 @@ Desktop.ini
 $RECYCLE.BIN/
 .DS_Store
 ._*
-
-# ---------------------------------------------------------------
-# Release asset staging
-# The folder itself is tracked (via Releases/README.md) but whatever
-# binaries you drop in it are not. Publish them at:
-#   https://github.com/ashizen/octonomad/releases
-# ---------------------------------------------------------------
-/Releases/*
-!/Releases/README.md

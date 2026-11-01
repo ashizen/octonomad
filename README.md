@@ -30,8 +30,7 @@ Gregorian rule (÷4, except centuries unless ÷400).
 | `Octonomad.Cli/`                | `net10.0` console app that references `Octonomad.Core`      |
 | `Octonomad.Cli/Octonomad.cs`    | Entry point / scratch harness                               |
 | `Assets/Scripts/`               | Early, incomplete drafts (`Day`, `Month`, `Week`) — not compiled |
-| `Octonomad.slnx`                | Solution (new XML format, .NET 10 SDK)                      |
-| `Releases/`                     | Local staging area for build artifacts — contents are git-ignored |
+| `Octonomad.sln`                 | Solution file                                              |
 
 `Octonomad.Core` has **no UI or platform dependency**, so the same calendar code
 can be referenced by a desktop app today and an Android app later without moving
@@ -46,7 +45,7 @@ the modelling direction.
 Requires the **.NET 10 SDK** — nothing else, no targeting packs:
 
 ```powershell
-dotnet build Octonomad.slnx
+dotnet build Octonomad.sln
 dotnet run --project Octonomad.Cli
 ```
 
@@ -59,13 +58,23 @@ Xday, October 35 2020.
 Wednesday, November 36 2019.
 ```
 
+To produce a standalone executable (output is git-ignored under `bin/`):
+
+```powershell
+dotnet publish Octonomad.Cli -c Release -r win-x64 --self-contained `
+  -p:PublishSingleFile=true
+```
+
 ## Status
 
 Work in progress. Known issues are marked with `///bug:` comments in the source.
 
-Binary builds are published on the [Releases](../../releases) page rather than
-committed to the repository. There is no Android build yet — see
-`Releases/README.md`.
+There are no published binaries and no Android build. An APK cannot be produced
+from this repository as-is — it would need a separate Android app project (for
+example `net10.0-android`) referencing `Octonomad.Core`. If a release is ever
+made, artifacts go on the GitHub
+[Releases](https://github.com/ashizen/octonomad/releases) page, never in the git
+history.
 
 ## License
 
