@@ -30,7 +30,7 @@ Gregorian rule (÷4, except centuries unless ÷400).
 | `Octonomad.Cli/`                | `net10.0` console app that references `Octonomad.Core`      |
 | `Octonomad.Cli/Octonomad.cs`    | Entry point / scratch harness                               |
 | `Assets/Scripts/`               | Early, incomplete drafts (`Day`, `Month`, `Week`) — not compiled |
-| `Octonomad.sln`                 | Solution file                                              |
+| `Octonomad.slnx`                | Solution file                                              |
 
 `Octonomad.Core` has **no UI or platform dependency**, so the same calendar code
 can be referenced by a desktop app today and an Android app later without moving
@@ -45,7 +45,7 @@ the modelling direction.
 Requires the **.NET 10 SDK** — nothing else, no targeting packs:
 
 ```powershell
-dotnet build Octonomad.sln
+dotnet build Octonomad.slnx
 dotnet run --project Octonomad.Cli
 ```
 
