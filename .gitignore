@@ -1,28 +1,77 @@
+# ---------------------------------------------------------------
 # Build output
+# ---------------------------------------------------------------
 [Bb]in/
 [Oo]bj/
+[Ll]ibrary/
+x64/
+x86/
+*.tlog
+*.log
+*.cache
+*.ilk
+MSBuildOutput.txt
 
+# ---------------------------------------------------------------
 # Visual Studio / IDE
+# ---------------------------------------------------------------
 .vs/
 .vscode/
 .idea/
 *.user
 *.suo
+*.userosscache
 *.userprefs
 *.DotSettings.user
+*.sln.docstates
+*.VC.db
+*.VC.VC.opendb
+.vsconfig
 
-# Release binaries (attach these to a GitHub Release instead)
-*.apk
+# ---------------------------------------------------------------
+# Release binaries
+# These belong on the GitHub Releases page, not in git history.
+# ---------------------------------------------------------------
 *.exe
 *.dll
 *.pdb
+*.so
+*.dylib
+*.apk
+*.aab
+*.aar
+*.ipa
 
-# Uncompiled Microsoft .NET Reference Source copies (MS-RSL, (c) Microsoft)
-# Kept locally for reading only - never part of the build.
-datetime.cs
-datetimeformat.cs
-gregoariancalendar.cs
+# ---------------------------------------------------------------
+# Android / Gradle (for when the mobile project lands here)
+# Unity .meta files are intentionally NOT ignored - they must be committed.
+# ---------------------------------------------------------------
+.gradle/
+local.properties
+*.iml
+captures/
+.externalNativeBuild/
+.cxx/
+*.keystore
+*.jks
+*.p12
+*.pfx
 
+# ---------------------------------------------------------------
 # OS junk
+# ---------------------------------------------------------------
 Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
 .DS_Store
+._*
+
+# ---------------------------------------------------------------
+# Release asset staging
+# The folder itself is tracked (via Releases/README.md) but whatever
+# binaries you drop in it are not. Publish them at:
+#   https://github.com/ashizen/octonomad/releases
+# ---------------------------------------------------------------
+/Releases/*
+!/Releases/README.md

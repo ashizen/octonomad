@@ -29,12 +29,13 @@ Gregorian rule (÷4, except centuries unless ÷400).
 | `Octonomad.cs`       | Console entry point / scratch harness                               |
 | `Assets/Scripts/`    | Early, incomplete drafts (`Day`, `Month`, `Week`) — not compiled    |
 | `Octonomad.csproj`   | .NET Framework 4.0 project (classic MSBuild format)                 |
+| `Releases/`          | Local staging area for build artifacts — contents are git-ignored   |
 
-`datetime.cs`, `datetimeformat.cs` and `gregoariancalendar.cs` are *not* part of
-the project. They are local reference copies of the Microsoft .NET Reference
-Source, used only as reading material while porting logic; the real
-`System.DateTime` and `System.Globalization.GregorianCalendar` come from the
-framework (mscorlib). They are git-ignored and not distributed here.
+`Assets/Scripts/` holds early, unfinished drafts (`Day`, `Month`, `Week`). They
+are **not** part of the build and do not currently compile — kept as a sketch of
+the modelling direction. The real `System.DateTime` and
+`System.Globalization.GregorianCalendar` come from the framework (mscorlib); no
+Microsoft reference source is redistributed here.
 
 ## Building
 
