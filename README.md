@@ -29,16 +29,18 @@ Gregorian rule (÷4, except centuries unless ÷400).
 | `Octonomad.Core/oDateTime.cs`   | Thin wrapper that prints a `DateTime` in octonary form      |
 | `Octonomad.Cli/`                | `net10.0` console app that references `Octonomad.Core`      |
 | `Octonomad.Cli/Octonomad.cs`    | Entry point / scratch harness                               |
-| `Assets/Scripts/`               | Early, incomplete drafts (`Day`, `Month`, `Week`) — not compiled |
+| `Assets/Scripts/`               | Early drafts (`Day`, `Month`, `Week`) — separate from the build |
 | `Octonomad.slnx`                | Solution file                                              |
 
 `Octonomad.Core` has **no UI or platform dependency**, so the same calendar code
 can be referenced by a desktop app today and an Android app later without moving
 or duplicating anything.
 
-`Assets/Scripts/` holds early, unfinished drafts (`Day`, `Month`, `Week`). They
-are **not** part of the build and do not currently compile — kept as a sketch of
-the modelling direction.
+`Assets/Scripts/` holds an earlier sketch of the calendar as `Day` / `Month` /
+`Week` types. It is **not** part of the solution and is not compiled by any
+project here. As a set of files it does compile — `dotnet new console`, drop the
+four files in, delete `Program.cs` — but its `Main` conflicts with
+`Octonomad.Cli`, so the two entry points cannot share one assembly.
 
 ## Building
 
@@ -67,14 +69,13 @@ dotnet publish Octonomad.Cli -c Release -r win-x64 --self-contained `
 
 ## Status
 
-Work in progress. Known issues are marked with `///bug:` comments in the source.
-
-There are no published binaries and no Android build. An APK cannot be produced
-from this repository as-is — it would need a separate Android app project (for
-example `net10.0-android`) referencing `Octonomad.Core`. If a release is ever
-made, artifacts go on the GitHub
-[Releases](https://github.com/ashizen/octonomad/releases) page, never in the git
-history.
+- Work in progress; known issues are marked `///bug:` in the source.
+- No published binaries.
+- No Android build. An APK requires a separate `net10.0-android` project
+  referencing `Octonomad.Core`.
+- Release artifacts go on the
+  [Releases](https://github.com/ashizen/octonomad/releases) page, never in git
+  history.
 
 ## License
 

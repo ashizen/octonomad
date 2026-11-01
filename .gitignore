@@ -62,6 +62,13 @@ captures/
 *.pfx
 
 # ---------------------------------------------------------------
+# Local scratch / draft work
+# Unpublished work in progress. Pending work lives in /Drafts and is
+# intentionally never pushed.
+# ---------------------------------------------------------------
+/Drafts/
+
+# ---------------------------------------------------------------
 # OS junk
 # ---------------------------------------------------------------
 Thumbs.db
