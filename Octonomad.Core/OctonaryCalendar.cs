@@ -6,10 +6,10 @@ using System.Text;
 
 public class OctonaryCalendar : GregorianCalendar
 {
-    static readonly int MonthsPerYear = 9;
+    public const int MonthsPerYear = 9;
     static readonly int[] DaysToMonth365 = { 0, 41, 81, 122, 162, 203, 243, 284, 324, 365 };
     static readonly int[] DaysToMonth366 = { 0, 41, 81, 122, 162, 203, 243, 284, 324, 366 };
-    static readonly int MaxYear = 9999;
+    public const int MaxYear = 9999;
 
     public const long TicksPerDay = 864000000000;
 
@@ -66,7 +66,7 @@ public class OctonaryCalendar : GregorianCalendar
         int[] days = leapYear ? DaysToMonth366 : DaysToMonth365;
         // m = month of year
         int m = 0;
-        for (int i = 0; i < DaysToMonth366.Length; i++) { if (n > DaysToMonth366[i] && n <= DaysToMonth366[i + 1]) { m = i; break; } }
+        for (int i = 0; i < days.Length - 1; i++) { if (n > days[i] && n <= days[i + 1]) { m = i; break; } }
         // If month was requested, return it 
         if (part == DatePartMonth) return (m + 1);
         // Return 1-based day-of-month 
@@ -77,9 +77,9 @@ public class OctonaryCalendar : GregorianCalendar
         **Action: Gets the absolute date for the given Gregorian date.  The absolute date means
         **       the number of days from January 1st, year 1.
         * */
-    internal static long GetAbsoluteDate(int year, int month, int day)
+    public static long GetAbsoluteDate(int year, int month, int day)
     {
-        if (year >= 1 && year <= MaxYear && month >= 1 && month <= 9)
+        if (year >= 1 && year <= MaxYear && month >= 1 && month <= MonthsPerYear)
         {
             int[] days = ((year % 4 == 0 && (year % 100 != 0 || year % 400 == 0))) ? DaysToMonth366 : DaysToMonth365;
             if (day >= 1 && (day <= days[month] - days[month - 1]))
@@ -94,7 +94,7 @@ public class OctonaryCalendar : GregorianCalendar
 
     // DateToTicks: Returns the tick count corresponding to the given year, month, and day.
     // Will check the if the parameters are valid. 
-    internal static long DateToTicks(int year, int month, int day)
+    public static long DateToTicks(int year, int month, int day)
     {
         return (GetAbsoluteDate(year, month, day) * TicksPerDay);
     }
@@ -108,7 +108,7 @@ public class OctonaryCalendar : GregorianCalendar
             {
                 throw new ArgumentOutOfRangeException("year");
             }
-            if (month < 1 || month > 12)
+            if (month < 1 || month > MonthsPerYear)
             {
                 throw new ArgumentOutOfRangeException("month");
             }
@@ -146,7 +146,13 @@ public class OctonaryCalendar : GregorianCalendar
 
     public override DateTime ToDateTime(int year, int month, int day, int hour, int minute, int second, int millisecond, int era)
     {
-        return new DateTime(year, month, day, hour, minute, second, millisecond);
+        if (era != CurrentEra && era != ADEra)
+        {
+            throw new ArgumentOutOfRangeException("era");
+        }
+        long ticks = DateToTicks(year, month, day)
+                     + new TimeSpan(0, hour, minute, second, millisecond).Ticks;
+        return new DateTime(ticks);
     }
 
     public override int GetEra(DateTime time)

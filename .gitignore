@@ -6,6 +6,10 @@
 [Ll]ibrary/
 x64/
 x86/
+artifacts/
+TestResults/
+.dotnet/
+*.binlog
 *.tlog
 *.log
 *.cache

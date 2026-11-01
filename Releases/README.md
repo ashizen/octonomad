@@ -15,16 +15,21 @@ assets are versioned, downloadable, and keep the repo small.
 
 ## Current release
 
-| Asset                             | Notes                                  |
-| --------------------------------- | -------------------------------------- |
-| *(none yet)*                      | Previous `OctonaryCalendarConverter0.5.apk` was removed during cleanup |
+None. The previous `OctonaryCalendarConverter0.5.apk` was removed during cleanup
+and is **not** reproducible from this repository — there is no Android project
+here and no Android toolchain is installed. Building an APK needs a new Android
+app project (for example `net10.0-android`) referencing `Octonomad.Core`.
 
 ## Building the desktop binary
 
-The .NET Framework console build lands in `bin/Release/`:
-
 ```powershell
-dotnet build Octonomad.csproj -c Release -p:TargetFrameworkVersion=v4.7.1
+dotnet publish Octonomad.Cli -c Release -o Releases\publish
 ```
 
-Copy `bin/Release/Octonomad.exe` here if you want to attach it to a release.
+That writes a self-contained-or-framework-dependent `Octonomad.Cli` build into
+`Releases/publish/`, which is git-ignored. To make it a single portable file:
+
+```powershell
+dotnet publish Octonomad.Cli -c Release -r win-x64 --self-contained `
+  -p:PublishSingleFile=true -o Releases\win-x64
+```

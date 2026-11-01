@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Octonomad.Cli/Octonomad.Cli.csproj" />
+  <Project Path="Octonomad.Core/Octonomad.Core.csproj" />
+</Solution>

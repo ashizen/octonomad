@@ -23,8 +23,18 @@ public class oDateTime : IEquatable<oDateTime>
             ocal.GetMonthOfYear(dateTime), ocal.GetDayOfMonth(dateTime), ocal.GetYear(dateTime));
     }
 
-    public bool Equals(oDateTime eq)
+    public bool Equals(oDateTime? other)
     {
-        return DateTime.Equals(dateTime.ToString(), eq.ToString());
+        return other is not null && dateTime == other.dateTime;
+    }
+
+    public override bool Equals(object? obj)
+    {
+        return Equals(obj as oDateTime);
+    }
+
+    public override int GetHashCode()
+    {
+        return dateTime.GetHashCode();
     }
 }

@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Octonomad</RootNamespace>
+    <PackageId>Octonomad.Core</PackageId>
+    <Description>An experimental octonary (base-8) calendar for .NET.</Description>
+    <Authors>ashizen</Authors>
+    <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/ashizen/octonomad</RepositoryUrl>
+  </PropertyGroup>
+
+</Project>
